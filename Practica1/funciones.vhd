@@ -34,17 +34,15 @@ entity funciones is
            b : in  STD_LOGIC;
            c : in  STD_LOGIC;
            d : in  STD_LOGIC;
-           f_inv : out  STD_LOGIC;
-           f_and2 : out  STD_LOGIC;
-           f_or2 : out  STD_LOGIC;
-           f_nand2 : out  STD_LOGIC;
-           f_nor2 : out  STD_LOGIC);
+           F1: out STD_LOGIC;
+			  F2: out STD_LOGIC;
 end funciones;
 
 architecture Behavioral of funciones is
 
 begin
-
+	F1 <= ((not a)and b and d) or (a and (not b) and d) or (b and c) or (c and d);
+	F2 <= (a and b) or (b and c and(not d));
 
 end Behavioral;
 
