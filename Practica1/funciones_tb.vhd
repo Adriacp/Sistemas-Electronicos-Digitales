@@ -1,0 +1,68 @@
+-- TestBench Template 
+
+  LIBRARY ieee;
+  USE ieee.std_logic_1164.ALL;
+  USE ieee.numeric_std.ALL;
+
+  ENTITY funciones_tb IS
+  END funciones_tb;
+
+  ARCHITECTURE behavior OF funciones_tb IS 
+
+  -- Component Declaration
+          COMPONENT funciones
+          PORT(
+                  a : IN std_logic;
+                  b : IN std_logic;
+						c:	IN std_logic;
+						d:	IN std_logic;
+						F1: OUT std_logic;
+						F2: OUT std_logic;
+                  );
+          END COMPONENT;
+	--Imputs
+          signal  a  std_logic := '0';
+          signal  b  std_logic := '0';
+			 signal  c  std_logic := '0';
+			 signal  d  std_logic := '0';
+   --Outputs
+			 signal	F1 : std_logic;
+			 signal	F2 : std_logic;
+
+	--apropriate port name
+	constant <clock>_period : time:= 10 ns;
+	
+  BEGIN
+
+  -- Component Instantiation
+          uut: funciones PORT MAP (
+                  a => a,
+						b => b,
+						c => c,
+						d => d,
+						F1 => F1,
+						F2 => F2,
+          );
+
+
+  --  Clock process definitions
+     <clock>_process :process
+     begin
+	<clock> <= '0';
+	wait for <clock>_period/2;
+	<clock> <= '1';
+	wait for <clock>_period/2;
+end process;
+--Stimulus process
+stim_proc: process
+begin
+	--hold reset state for 100ns.
+	wait for 100 ns;
+	
+	wait for <clock>_period*10;
+	
+	--insert stimulus here
+	
+	wait;
+end process;
+  END;
