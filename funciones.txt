@@ -35,7 +35,7 @@ entity funciones is
            c : in  STD_LOGIC;
            d : in  STD_LOGIC;
            F1: out STD_LOGIC;
-			  F2: out STD_LOGIC;
+	   F2: out STD_LOGIC);
 end funciones;
 
 architecture Behavioral of funciones is
@@ -45,4 +45,3 @@ begin
 	F2 <= (a and b) or (b and c and(not d));
 
 end Behavioral;
-
